@@ -1,7 +1,6 @@
 package com.product.DraftTicketApplication.entities;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class RequestEntityDraftTicket {
@@ -12,7 +11,7 @@ public class RequestEntityDraftTicket {
     @NotEmpty(message = "Departure location cannot be null or empty")
     private String departure;
 
-    public RequestEntityDraftTicket(@NotNull List<Passenger> passengersList, String departure, String arrival) {
+    public RequestEntityDraftTicket(List<Passenger> passengersList, String departure, String arrival) {
         this.passengersList = passengersList;
         this.departure = departure;
         this.arrival = arrival;
