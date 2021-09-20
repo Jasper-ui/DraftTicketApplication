@@ -24,7 +24,7 @@ public class ResponseEntityTickets {
         return departure;
     }
 
-    public void setDeparture(String totalTravelCost) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 

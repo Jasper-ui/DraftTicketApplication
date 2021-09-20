@@ -3,10 +3,28 @@ package com.product.DraftTicketApplication.entities;
 import java.math.BigDecimal;
 
 public class Ticket {
+    String firstName;
+    String lastName;
     BigDecimal individualTravelCost;
     BigDecimal individualLuggageCost;
     BigDecimal individualTotalCost;
     BigDecimal individualTotalWithTax;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public BigDecimal getIndividualTravelCost() {
         return individualTravelCost;

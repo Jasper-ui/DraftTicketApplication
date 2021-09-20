@@ -1,6 +1,5 @@
 package com.product.DraftTicketApplication.services;
 
-import com.product.DraftTicketApplication.entities.RequestEntityDraftTicket;
 import com.product.DraftTicketApplication.entities.Passenger;
 import com.product.DraftTicketApplication.entities.RequestEntityDraftTicket;
 import com.product.DraftTicketApplication.entities.ResponseEntityTickets;
@@ -32,7 +31,7 @@ public class DraftTicketService implements TicketInterface {
             createIndividualTickets(passenger, individualTickets, travelRate, taxRate);
         }
 
-        return createResponseTicket(individualTickets);
+        return createResponseTicket(draftTicket, individualTickets);
     }
 
     private BigDecimal getTravelRate(String arrival, String departure) {
@@ -52,15 +51,19 @@ public class DraftTicketService implements TicketInterface {
                 passenger.getAdult() ? travelRate : travelRate.multiply(BigDecimal.valueOf(0.5))
         );
 
+        newTicket.setFirstName(passenger.getFirstName());
+        newTicket.setLastName(passenger.getLastName());
         newTicket.setIndividualLuggageCost(travelRate.multiply(BigDecimal.valueOf(0.3)).multiply(BigDecimal.valueOf(passenger.getLuggageList().size())));
         newTicket.setIndividualTotalCost(newTicket.getIndividualTravelCost().add(newTicket.getIndividualLuggageCost()));
         newTicket.setIndividualTotalWithTax(taxRate.multiply(BigDecimal.valueOf(0.01)).multiply(newTicket.getIndividualTotalCost()).add(newTicket.getIndividualTotalCost()));
         individualTickets.add(newTicket);
     }
 
-    private ResponseEntityTickets createResponseTicket(List<Ticket> individualTickets) {
+    private ResponseEntityTickets createResponseTicket(RequestEntityDraftTicket draftTicket, List<Ticket> individualTickets) {
         ResponseEntityTickets tickets = new ResponseEntityTickets();
 
+        tickets.setDeparture(draftTicket.getDeparture());
+        tickets.setArrival(draftTicket.getArrival());
         tickets.setIndividualTickets(individualTickets);
         tickets.setTotalTravelCost(tickets.calculateTotalTravelCost());
         tickets.setTotalLuggageCost(tickets.calculateTotalLuggageCost());
