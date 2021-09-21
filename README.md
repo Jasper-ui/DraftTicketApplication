@@ -46,3 +46,12 @@ There are 3 main testing packages contained in the application:
    This includes validation tests as well.
 2) `com.product.ticketapp.SmokeTests` - which checks correct bean instantiations
 3) `com.product.ticketapp.UnitTests` - Contains the unit tests for the DraftTicketService
+
+### Acceptance Criteria testing
+
+To test the acceptance criteria I used both the output from the FullTest.java, and the output from running the
+application and using postman to submit a POST request. Screenshots can be seen bellow:
+
+![image](Img/Capture.PNG)
+
+![image1](Img/Capture1.PNG)
