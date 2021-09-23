@@ -36,12 +36,12 @@ public class DraftTicketServiceImpl implements TicketService {
 
   private BigDecimal getTravelRate(String arrival, String departure) {
     // Retrieval from external service and validation
-    return new BigDecimal(10);
+    return BigDecimal.valueOf(10);
   }
 
   private BigDecimal getTaxRate() {
     // Retrieval from external service and validation
-    return new BigDecimal(21);
+    return BigDecimal.valueOf(21);
   }
 
   private Ticket createIndividualTicket(
