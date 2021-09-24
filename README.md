@@ -26,8 +26,8 @@ validation exceptions(since normally on validation responses there are no error 
 
 The `com.product.ticketapp.entities` package holds all the required entities/data structures for the whole application:
 
-1) RequestEntityDraftTicket - the request object needed to be submitted on each request
-2) ResponseEntityTickets - the response of the POST method containing all the prices/costs
+1) DraftTicketRequest - the request object needed to be submitted on each request
+2) DraftTicketResponse - the response of the POST method containing all the prices/costs
 3) Luggage - data structure corresponding to a passengers' luggage with a dummy field
 4) Passenger - data structure representing the passenger
 5) Ticket - data structure representing individual passengers tickets/prices
@@ -42,10 +42,10 @@ the price calculations and the construction of the response entity.
 
 There are 3 main testing packages contained in the application:
 
-1) `com.product.ticketapp.FullTest` - which tests the application end to end and confirms that everything is working.
-   This includes validation tests as well.
-2) `com.product.ticketapp.SmokeTests` - which checks correct bean instantiations
+1) `com.product.ticketapp.FullTest` - Which tests the application end to end and confirms that everything is working.
+2) `com.product.ticketapp.SmokeTests` - Which checks correct bean instantiations
 3) `com.product.ticketapp.UnitTests` - Contains the unit tests for the DraftTicketService
+4) `com.product.ticketapp.ValidationTests` - Tests the spring validation layer and error messages
 
 ### Acceptance Criteria testing
 
